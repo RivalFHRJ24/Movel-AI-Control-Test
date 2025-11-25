@@ -1,0 +1,16 @@
+# config/teb_local_planner_params.yaml
+TebLocalPlannerROS:
+  # Kinematik (Tuning)
+  max_vel_x: 0.40 # Sedikit lebih lambat untuk kontrol yang lebih presisi
+  max_vel_theta: 0.8
+  acc_lim_x: 0.4
+  acc_lim_theta: 0.8
+
+  # Optimasi
+  dt_ref: 0.4
+  trajectory_forward_ray_length: 1.0
+  
+  # Constraints & Weights (Tuning)
+  weight_kinematics_forward_drive: 1.0 # Mendorong gerak maju (jika robot non-holonomic)
+  min_obstacle_dist: 0.35 # Jarak aman minimum lebih besar
+  weight_obstacle: 50.0 # Bobot tinggi untuk rintangan (jalur sangat aman)

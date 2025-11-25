@@ -1,0 +1,19 @@
+<launch>
+  <arg name="local_planner" default="dwa_local_planner" /> 
+  
+  <arg name="planner_name" value="DwaPlannerROS" if="$(eval local_planner == 'dwa_local_planner')" />
+  <arg name="planner_name" value="TebLocalPlannerROS" if="$(eval local_planner == 'teb_local_planner')" />
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    
+    <rosparam file="$(find movel_ai_ctrl_test)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find movel_ai_ctrl_test)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find movel_ai_ctrl_test)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find movel_ai_ctrl_test)/config/global_costmap_params.yaml" command="load" />
+
+    <param name="base_local_planner" value="$(arg planner_name)" />
+
+    <rosparam file="$(find movel_ai_ctrl_test)/config/$(arg local_planner)_params.yaml" command="load" />
+  </node>
+  
+</launch>

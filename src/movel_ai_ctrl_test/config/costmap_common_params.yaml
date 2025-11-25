@@ -1,0 +1,12 @@
+# costmap_common_params.yaml
+robot_radius: 0.35 # Radius keamanan robot (m)
+footprint: [[-0.3,-0.3], [-0.3,0.3], [0.3,0.3], [0.3,-0.3]] # Footprint persegi
+transform_tolerance: 0.2
+
+# Konfigurasi Layer Sensor
+obstacle_layer:
+    enabled: true
+    max_obstacle_height: 2.0
+    # Asumsi topik sensor standar /scan
+    observation_sources: laser_scan_sensor
+    laser_scan_sensor: {sensor_frame: laser, data_type: LaserScan, topic: /scan, marking: true, clearing: true}

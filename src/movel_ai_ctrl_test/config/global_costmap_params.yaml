@@ -1,0 +1,8 @@
+# global_costmap_params.yaml
+global_costmap:
+   # Frame referensi dan sensor
+   global_frame: map
+   robot_base_frame: base_link
+   update_frequency: 1.0 # Update map 1x per detik
+   publish_frequency: 0.5
+   static_map: true # Menggunakan peta statis yang sudah dimuat

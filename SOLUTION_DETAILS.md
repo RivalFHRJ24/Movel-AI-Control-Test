@@ -66,6 +66,22 @@ The parameterized launch system successfully validated the ability to switch bet
 **Execution Log Snippet (ROS Master Setup):**
 
 > (Image showing roscore running in Terminal 1, initiating the ROS Master and core service [/rosout])
+![alt text](https://github.com/RivalFHRJ24/Movel-AI-Control-Test/blob/main/roscoreterminal1_partb.png?raw=true)
+> Command (Host): Access the container with syntax  “docker exec -it seirios-ros /bin/bash”.Command (Container): Start ROS Master with syntax “roscore”.
+![alt text](https://github.com/RivalFHRJ24/Movel-AI-Control-Test/blob/main/Terminal2partbruncoderoslunch.png?raw=true)
+> Command (Container): Launch Move Base with DWA (Controller 1). We can use the syntax “docker exec -it seirios-ros /bin/bash”, and Command (Container): Source the workspace. We can use the syntax “source /home/movel/catkin_ws/devel/setup.bash”, Next Command (Container): Launch Move Base with DWA (Controller 1). We use the syntax “roslaunch movel_ai_ctrl_test nav_test.launch local_planner:=dwa_local_planner”. In Terminal Session 2, and we can see the results in the image below.
+![alt text](https://github.com/RivalFHRJ24/Movel-AI-Control-Test/blob/main/resultlogroslunch.png?raw=true)
+
+*Result DWA Controller part B*
+![alt text](https://github.com/RivalFHRJ24/Movel-AI-Control-Test/blob/main/ResultControllerDWArosrun.png?raw=true)
+> Command (Host): Access the container, with syntax “docker exec -it seirios-ros /bin/bash”, Command (Container): Source the workspace Access with syntax  “source /home/movel/catkin_ws/devel/setup.bash”. Command (Container): Execute the waypoint sender, with syntax “rosrun movel_ai_ctrl_test waypoint_publisher.py”, and we can see the results in the image below, in terminal session 3.
+
+![alt text](https://github.com/RivalFHRJ24/Movel-AI-Control-Test/blob/main/roslunchTEBController.png?raw=true)
+> Command (Container): Launch Move Base with TEB (Controller 2). With syntax “roslaunch movel_ai_ctrl_test nav_test.launch local_planner:=teb_local_planner”. In Terminal Session 2, and we can see the results in the image below.
+![alt text](https://github.com/RivalFHRJ24/Movel-AI-Control-Test/blob/main/ResultControllerTEDrosrun.png?raw=true)
+> Re-run the publisher to send the same waypoints using the newly configured TEB stack, with syntax “rosrun movel_ai_ctrl_test waypoint_publisher.py”. and we can see the results in the image below, in terminal session 3
+
+
 
 ---
 
@@ -108,3 +124,9 @@ The final execution demonstrates the success of the algorithmic pipeline (filter
 **Execution Log Snippet (Part C Success):**
 
 > (Image showing `rosrun movel_ai_ctrl_test path_simplifier.py` successfully loaded 992 points, mitigated noise, and achieved a final simplified path of 50 points. The output file `simplified_path_N_50.csv` is created).
+>roscore
+![alt text](https://github.com/RivalFHRJ24/Movel-AI-Control-Test/blob/main/roscorepartC.png)
+>Access the container, with syntax “docker exec -it seirios-ros /bin/bash”, Command (Container): Source the workspace Access with syntax  “source /home/movel/catkin_ws/devel/setup.bash”. and then execute the program with syntax “rosrun movel_ai_ctrl_test path_simplifier.py /home/movel/rosbags/path_test.bag 0.005 50”.
+![alt text](https://github.com/RivalFHRJ24/Movel-AI-Control-Test/blob/main/rosdockerpartC_andruncodepartC.png?raw=true)
+>Result
+
